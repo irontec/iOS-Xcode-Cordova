@@ -1,0 +1,175 @@
+<html>
+<head>
+  <title>Swift Closures</title>
+  <style>
+    body {
+      background-color: #292a35;
+      color: #fff;
+      font-family: Helvetica Neue, sans-serif;
+      font-size: 20px;
+      padding: 40px;
+      padding-bottom: 0;
+    }
+
+    strong {
+      color: #56bd4d;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 1.5em;
+      text-align: center;
+    }
+
+    h2 {
+      font-weight: normal;
+    }
+
+    .return {
+      color: #ba246c;
+    }
+
+    .name {
+      color: #95cc6b;
+    }
+
+    .func {
+      color: #2dafc9;
+    }
+
+    .parameter-types, .parameters {
+      color: #2dafc9;
+    }
+
+    .closure-type {
+      color: #95cc6b;
+    }
+
+    .disclaimer {
+      line-height: 2em;
+    }
+
+    code {
+      display: block;
+      font-family: Menlo, monaco, monospace;
+      font-size: 20px;
+      margin-bottom: 3em;
+      margin-left: 40px;
+      margin-top: 1.5em;
+    }
+
+    footer {
+      font-size: 12px;
+      margin-top: 200px;
+      opacity: 0.4;
+      text-align: right;
+    }
+
+    a {
+      color: #0088D9;
+      text-decoration: none;
+    }
+
+  </style>
+
+  <style media='print'>
+    body {
+      background-color: #FFFFFF;
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 1em;
+    }
+
+    code {
+      font-size: 16px;
+      margin-bottom: 2em;
+      margin-left: 20px;
+    }
+
+    footer {
+      font-size: 10px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+   
+  <h1>Declaraci&oacute;n de 'Closures' en Swift</h1>
+  <div>
+    <h2>Como <strong>variable</strong>:</h2>
+    <code>
+      <span class='return'>var</span> closureName: (<span class='parameter-types'>parameterTypes</span>) -&gt; (<span class='return'>returnType</span>)
+    </code>
+  </div>
+  
+  <div>
+    <h2>Como <strong>variable opcional</strong>:</h2>
+    <code>
+      <span class='return'>var</span> closureName: ((<span class='parameter-types'>parameterTypes</span>) -&gt; (<span class='return'>returnType</span>))?
+    </code>
+  </div>
+
+  <div>
+    <h2>Como  <strong>type alias</strong>:</h2>
+    <code>
+        <span class='return'>typealias</span> <span class='closure-type'>closureType</span> = (<span class='parameter-types'>parameterTypes</span>) -&gt; (<span class='return'>returnType</span>)
+    </code>
+  </div>
+
+  <h2>Como <strong>constante</strong>:</h2>
+    <code>
+      <span class='return'>let</span> closureName: <span class='closure-type'>closureType</span> = { ... }
+    </code>
+  </div>
+
+  <div>
+    <h2>Como <strong>argumento de una llamada a una funci&oacute;n</strong>:</h2>
+    <code>
+      <span class='name'>func</span>({(<span class='parameter-types'>parameterTypes</span>) -&gt; (<span class='return'>returnType</span>) in statements})
+    </code>
+  </div>
+
+
+  <div>
+    <h2>Como <strong>par&aacute;metro de una funci&oacute;n</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span>({ (item1: <span class='func'>Int</span>, item2: <span class='func'>Int</span>) -&gt; Bool <span class='return'>in return</span> item1 &lt; item2 })
+    </code>
+
+    <h2>Como <strong>par&aacute;metro de una funci&oacute;n con tipados impl&iacute;citos</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span>({ (item1, item2) -&gt; Bool <span class='return'>in return</span> item1 &lt; item2 })
+    </code>
+
+    <h2>Como <strong>par&aacute;metro de una funci&oacute;n con tipado impl&iacute;cito en el retorno</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span>({ (item1, item2) <span class='return'>in return</span> item1 &lt; item2 })
+    </code>
+
+    <h2>Como <strong>&uacute;ltimo par&aacute;metro de la funci&oacute;n</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span> { (item1, item2) <span class='return'>in return</span> item1 &lt; item2 }
+    </code>
+
+    <h2>Como &uacute;ltimo par&aacute;metro, <strong>usando nombres de argumentos simplificados (shorthand)</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span> { <span class='return'>return</span> $0 &lt; $1 }
+    </code>
+
+    <h2>Como &uacute;ltimo par&aacute;metro, <strong>con tipado impl&iacute;cito en el retorno</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span> { $0 &lt; $1 }
+    </code>
+
+    <h2>Como &uacute;ltimo par&aacute;metro, <strong> como referencia a una funci&oacute;n existente</strong>:</h2>
+    <code>
+      <span class='name'>array</span>.<span class='func'>sort</span>(&lt;)
+    </code>
+  </div>
+</body>
+</html>
